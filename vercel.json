@@ -1,18 +1,22 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "haque/wsgi.py",
-        "use": "@vercel/python"
-      }
+        {
+            "src": "haque/wsgi.py",
+            "use": "@vercel/python"
+        }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "haque/wsgi.py"
-      }
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "haque/wsgi.py"
+        }
     ],
     "env": {
-      "DJANGO_SETTINGS_MODULE": "haque.settings"
+        "DJANGO_SETTINGS_MODULE": "haque.settings"
     }
 }
