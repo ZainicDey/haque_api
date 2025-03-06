@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)c7vj_h6qh6-di#^mvi1)r6t_d$g46#b&=7_@sbtg44!@6lruz
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-WSGI_APPLICATION = 'api.wsgi.app'
+WSGI_APPLICATION = 'haque.wsgi.application'
 # Application definition
 
 INSTALLED_APPS = [

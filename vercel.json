@@ -1,13 +1,18 @@
 {
-    "builds": [{
-      "src": "haque/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.3" }
-    }],
+    "version": 2,
+    "builds": [
+      {
+        "src": "haque/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
     "routes": [
       {
         "src": "/(.*)",
         "dest": "haque/wsgi.py"
       }
-    ]
-}
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "puzzle_solver.settings"
+    }
+  }  
