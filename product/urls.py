@@ -5,8 +5,8 @@ from django.urls import include
 router = DefaultRouter()
 router.register(r'products', views.ProductViewSet)
 router.register(r'categories', views.CategoryViewSet)
+router.register(r'brands', views.BrandViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
-    
 ]

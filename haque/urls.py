@@ -24,4 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('product.urls')),
     path('api/auth/', include('UserAuth.urls')),
+    path('api/gallery/', include('gallery.urls')),
+    path('api/contact/', include('contact_us.urls')),
+    path('api/newsletter/', include('news_letter.urls')),
+    path('api/notification/', include('notification.urls')),
 ]

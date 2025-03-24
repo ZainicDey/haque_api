@@ -9,9 +9,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = models.Product.objects.all()
     serializer_class = serializers.ProductSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category__name']
-    search_fields = ['name', 'description']
-    ordering_fields = ['price', 'created_at', 'rating']
+    filterset_fields = ['category__name', 'brand__name']
+    search_fields = ['name', 'description', 'category__description', 'brand__description']
+    ordering_fields = ['original_price', 'created_at']
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'destroy']:
@@ -44,3 +44,12 @@ class CategoryViewSet(viewsets.ModelViewSet):
             serializer.save(name=category_name) 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class BrandViewset(viewsets.ModelViewSet):
+    queryset = models.Brand.objects.all()
+    serializer_class = serializers.BrandSerializer
+
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'destroy']:
+            return [permissions.IsAdminUser()]
+        return []

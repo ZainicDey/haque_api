@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+
     'product',
     'django_filters',
     'UserAuth',
+    'gallery',
+    'contact_us',
+    'news_letter',
+    'notification',
+    
     'rest_framework_simplejwt',
 ]
 import os
@@ -192,3 +198,11 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Change based on your email provider
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@example.com'
+EMAIL_HOST_PASSWORD = 'your_email_password'  # Use environment variables for security
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SUPPORT_EMAIL = 'support@example.com'  # Your support email
